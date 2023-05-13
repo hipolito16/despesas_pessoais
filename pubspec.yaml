@@ -1,0 +1,53 @@
+name: despesas_pessoais
+
+description: Projeto para controle de despesas pessoais.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_modular: ^5.0.3
+  mobx: ^2.2.0
+  flutter_mobx: ^2.0.6+5
+  path: ^1.8.2
+  path_provider: ^2.0.15
+  synchronized: ^3.0.1
+  sqflite_common_ffi: ^2.2.1+1
+  intl: ^0.17.0
+  flutter_localizations:
+    sdk: flutter
+  sqflite:
+    git:
+      url: git@github.com:hipolito16/sqflite.git
+      ref: main
+      path: sqflite
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  mobx_codegen: ^2.3.0
+  build_runner: ^2.3.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/waiting.png
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand-Bold.ttf
+          weight: 700
