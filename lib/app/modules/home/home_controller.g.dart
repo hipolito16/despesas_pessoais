@@ -125,7 +125,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
       AsyncAction('_HomeControllerBase.save', context: context);
 
   @override
-  Future save(DespesaDto despesa) {
+  Future<void> save(DespesaDto despesa) {
     return _$saveAsyncAction.run(() => super.save(despesa));
   }
 
@@ -133,7 +133,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
       AsyncAction('_HomeControllerBase.update', context: context);
 
   @override
-  Future update(DespesaDto despesa) {
+  Future<void> update(DespesaDto despesa) {
     return _$updateAsyncAction.run(() => super.update(despesa));
   }
 
@@ -141,7 +141,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
       AsyncAction('_HomeControllerBase.delete', context: context);
 
   @override
-  Future delete(int id) {
+  Future<void> delete(int id) {
     return _$deleteAsyncAction.run(() => super.delete(id));
   }
 

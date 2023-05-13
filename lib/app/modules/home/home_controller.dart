@@ -11,6 +11,18 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   final IDespesaService despesaService;
 
+  _HomeControllerBase({required this.despesaService}) {
+    init();
+  }
+
+  @action
+  Future<void> init() async {
+    await getList();
+    await getRecentDespesa();
+    await getGroupedDespesa();
+    await getWeekTotal();
+  }
+
   @observable
   bool loadingList = false;
 
@@ -29,18 +41,6 @@ abstract class _HomeControllerBase with Store {
   @observable
   double WeekTotal = 0.0;
 
-  _HomeControllerBase({required this.despesaService}) {
-    init();
-  }
-
-  @action
-  Future<void> init() async {
-    await getList();
-    await getRecentDespesa();
-    await getGroupedDespesa();
-    await getWeekTotal();
-  }
-
   @action
   void setLoadingList(bool value) => loadingList = value;
 
@@ -55,7 +55,7 @@ abstract class _HomeControllerBase with Store {
   }
 
   @action
-  save(DespesaDto despesa) async {
+  Future<void> save(DespesaDto despesa) async {
     setLoadingList(true);
     await despesaService.insert(despesa);
     init();
@@ -63,7 +63,7 @@ abstract class _HomeControllerBase with Store {
   }
 
   @action
-  update(DespesaDto despesa) async {
+  Future<void> update(DespesaDto despesa) async {
     setLoadingList(true);
     await despesaService.update(despesa);
     init();
@@ -71,7 +71,7 @@ abstract class _HomeControllerBase with Store {
   }
 
   @action
-  delete(int id) async {
+  Future<void> delete(int id) async {
     setLoadingList(true);
     await despesaService.delete(id);
     init();
